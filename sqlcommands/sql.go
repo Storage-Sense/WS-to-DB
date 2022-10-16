@@ -25,4 +25,10 @@ func ConnectToDB(password  string){
 	if err != nil {
 		panic(err)
 	}
+	command := "\\dt"
+	rows, err := db.Query(command)
+	if err != nil {
+		panic(err)
+	}
+	defer rows.Close()
 }
